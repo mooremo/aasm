@@ -686,6 +686,35 @@ end
 
 which then leads to `transaction(:requires_new => false)`, the Rails default.
 
+### Pessmimistic Locking
+
+TO DO: Add more information. This is for the sake of PR review...
+
+
+```ruby
+class Job < ActiveRecord::Base
+  include AASM
+
+  aasm :requires_lock => true
+    ...
+  end
+
+  ...
+end
+```
+
+```ruby
+class Job < ActiveRecord::Base
+  include AASM
+
+  aasm :requires_lock => 'FOR UPDATE NOWAIT'
+    ...
+  end
+
+  ...
+end
+```
+
 
 ### Column name & migration
 
