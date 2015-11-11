@@ -686,7 +686,7 @@ end
 
 which then leads to `transaction(:requires_new => false)`, the Rails default.
 
-### Pessmimistic Locking
+### Pessimistic Locking
 
 TO DO: Add more information. This is for the sake of PR review...
 
