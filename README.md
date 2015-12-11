@@ -688,7 +688,7 @@ which then leads to `transaction(:requires_new => false)`, the Rails default.
 
 ### Pessimistic Locking
 
-AASM supports pessimistic locking for database persistence layers. It leverages Active Record's `with_lock` mechanics underneath with will reload the model with a lock in the transaction.
+AASM supports pessimistic locking for database persistence layers. It leverages Active Record's `with_lock` mechanics underneath and it will reload the model with a lock in the transaction.
 
 http://api.rubyonrails.org/classes/ActiveRecord/Locking/Pessimistic.html#method-i-with_lock
 
