@@ -688,14 +688,22 @@ which then leads to `transaction(:requires_new => false)`, the Rails default.
 
 ### Pessimistic Locking
 
-TO DO: Add more information. This is for the sake of PR review...
+AASM supports pessimistic locking for database persistence layers. It leverages Active Record's `with_lock` mechanics underneath with will reload the model with a lock in the transaction.
+
+http://api.rubyonrails.org/classes/ActiveRecord/Locking/Pessimistic.html#method-i-with_lock
+
+| Option | Purpose | SQL |
+| ------ | ------- | --- |
+| false (default) | no lock is obtained | |
+| true   | Obtain a blocking pessimistic lock | `FOR UPDATE` |
+| string | Obtain a lock based on the SQL string | `FOR UPDATE NOWAIT` |
 
 
 ```ruby
 class Job < ActiveRecord::Base
   include AASM
 
-  aasm :requires_lock => true
+  aasm :requires_lock => true do
     ...
   end
 
@@ -707,7 +715,7 @@ end
 class Job < ActiveRecord::Base
   include AASM
 
-  aasm :requires_lock => 'FOR UPDATE NOWAIT'
+  aasm :requires_lock => 'FOR UPDATE NOWAIT' do
     ...
   end
 
