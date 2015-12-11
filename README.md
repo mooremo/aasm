@@ -692,11 +692,11 @@ AASM supports pessimistic locking for database persistence layers. It leverages 
 
 http://api.rubyonrails.org/classes/ActiveRecord/Locking/Pessimistic.html#method-i-with_lock
 
-| Option | Purpose | SQL |
-| ------ | ------- | --- |
-| false (default) | no lock is obtained | |
-| true   | Obtain a blocking pessimistic lock | `FOR UPDATE` |
-| string | Obtain a lock based on the SQL string | `FOR UPDATE NOWAIT` |
+| Option | Purpose |
+| ------ | ------- |
+| false (default) | No lock is obtained | |
+| true   | Obtain a blocking pessimistic lock |
+| string | Obtain a lock based on the SQL string e.g. `FOR UPDATE NOWAIT` |
 
 
 ```ruby
